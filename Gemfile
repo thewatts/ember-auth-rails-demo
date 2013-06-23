@@ -1,38 +1,40 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rails'
 gem 'pg'
 
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-rails', '~> 2.2'
+  gem 'sass-rails',   '~> 3.2'
+  gem 'coffee-rails', '~> 3.2'
+  gem 'uglifier',     '~> 1.3'
 end
 
-gem 'jquery-rails'
+group :development, :test do
+  gem 'rspec-rails'                 # for tests
+  gem 'spork'                       # speedier tests
+  gem 'guard-rspec'                 # watch app files
+  gem 'guard-spork'                 # spork integration
+  gem 'database_cleaner'            # cleanup database in tests
+  gem 'fabrication'                 # model stubber
+  gem 'shoulda'                     # model spec tester
+  gem 'rb-inotify', :require => false  # Linux file notification
+  gem 'rb-fsevent', :require => false  # OSX file notification
+  gem 'rb-fchange', :require => false  # Windows file notification
+end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'devise'                   # server-side authentication
+gem 'bcrypt-ruby'              # password encryption
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'inherited_resources'      # for easy RESTful API controller scaffolding
+gem 'active_model_serializers' # works out of the box with ember-data
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem 'ember-rails'              # ember framework
+gem 'ember-source', '1.0.0.rc5' # or the version you need
+gem 'handlebars-source', '1.0.0.rc4' # or the version you need
+gem 'ember-auth-rails'         # client-side authentication
+gem 'emblem-rails'             # easier to write templates
 
-# Deploy with Capistrano
-# gem 'capistrano'
+gem 'unicorn'                  # better server gem for heroku
 
-# To use debugger
-# gem 'debugger'
+gem 'newrelic_rpm'             # prevent heroku from idling
