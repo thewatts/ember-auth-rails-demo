@@ -59,6 +59,10 @@ Spork.prefork do
     end
   end
 
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, type: :controller
+  end
+
 end
 
 Spork.each_run do
